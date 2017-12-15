@@ -19,12 +19,10 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.themes.ValoTheme;
 
 import ru.project.cscm_ui.commons.AccessTokenHelper;
 import ru.project.cscm_ui.commons.Properties;
@@ -34,7 +32,7 @@ import ru.project.cscm_ui.user.UserData;
 import ru.project.cscm_ui.user.UserDataStorage;
 
 @SpringUI(path = LoginUI.PATH)
-@Theme(ValoTheme.THEME_NAME)
+@Theme(LoginUI.THEME_NAME)
 @Title(LoginUI.TITLE_UI)
 public class LoginUI extends UI {
 
@@ -42,13 +40,13 @@ public class LoginUI extends UI {
 
 	public final static String PATH = "/SVCM/login";
 	final static String TITLE_UI = "CM Supply Chain";
+	final static String THEME_NAME = "login";
 
 	private TextField username;
 	private PasswordField password;
 	private Button loginButton;
 	private VerticalLayout content;
 	private CheckBox rememberMe;
-	private HorizontalLayout loginComposite;
 
 	@Autowired
 	private Properties props;
@@ -59,11 +57,14 @@ public class LoginUI extends UI {
 	public LoginUI() {
 		super();
 		this.content = new VerticalLayout();
+		this.content.setStyleName("loginForm");
 		this.username = new TextField("Username");
+		this.username.setStyleName("loginPanelInputText");
 		this.password = new PasswordField("Password");
+		this.password.setStyleName("loginPanelInputText");
 		this.loginButton = new Button("Sign in");
+		this.loginButton.setStyleName("loginButton");
 		this.rememberMe = new CheckBox("Remember me");
-		this.loginComposite = new HorizontalLayout();
 	}
 
 	@Override
@@ -107,19 +108,15 @@ public class LoginUI extends UI {
 				getUI().getPage().setLocation(RequestUI.PATH);
 			});
 
-			loginComposite.addComponent(rememberMe);
-			loginComposite.addComponent(loginButton);
-
 			content.addComponent(this.username);
 			content.addComponent(this.password);
-			content.addComponent(this.loginComposite);
-
-			loginComposite.setComponentAlignment(this.loginButton, Alignment.MIDDLE_CENTER);
-			loginComposite.setComponentAlignment(this.rememberMe, Alignment.MIDDLE_CENTER);
-
+			content.addComponent(this.rememberMe);
+			content.addComponent(this.loginButton);
+			
 			content.setComponentAlignment(this.username, Alignment.MIDDLE_CENTER);
 			content.setComponentAlignment(this.password, Alignment.MIDDLE_CENTER);
-			content.setComponentAlignment(this.loginComposite, Alignment.MIDDLE_CENTER);
+			content.setComponentAlignment(this.rememberMe, Alignment.MIDDLE_CENTER);
+			content.setComponentAlignment(this.loginButton, Alignment.MIDDLE_CENTER);
 
 			UIHelper.configureUIException(content).setContent(content);
 		} else {

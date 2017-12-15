@@ -1,0 +1,64 @@
+@import "../valo/valo.scss";
+  
+@mixin login { 
+	@include valo;
+	
+	.loginForm { 
+		position:center;
+		margin-top: 100px;
+		top: 40%;
+		left: 50%;
+		text-align: center;
+	}
+	
+	.loginPanel {
+		width: 250px;
+		height: 170px;
+		background-color: #EFF1E6 !important;
+		border: none;
+	}
+	
+	.loginPanelHeader {
+		font-size: 15px;
+		font-weight: bold;
+		padding-bottom: 10px
+	}
+	
+	.loginPanelInputTable {
+		font-size: 12px;
+	}
+	
+	.loginPanelOutputTextColumn {
+		text-align: left;
+		font-weight: bold;
+		color: #272F36;
+	}
+	
+	.loginPanelInputText {
+		width: 100%;
+		font-size: inherit !important;
+		padding: 2px;
+		border-radius: 5px;
+	}
+	
+	.loginButton {
+		font-size: 13px !important;
+		width: 80px;
+		height: 30px;
+		border: 1px solid #ccc !important;
+		border-radius: 5px;
+	}
+	
+	.loginFormMessages {
+		font-size: 14px !important;
+		font-weight: bold;
+		color: #FF4444;
+	}
+	
+	.capsLockIndicator {
+		width: 100px;
+		color: #FF4444;
+		font-size: 12px;
+		font-weight: bold;
+	}
+}

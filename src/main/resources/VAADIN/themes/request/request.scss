@@ -1,0 +1,46 @@
+@import "../valo/valo.scss";
+  
+@mixin request { 
+	@include valo;
+	
+	.headerLabel {
+		color: #0000FF;
+		font-size: 25px;
+	}
+	
+	.headerLayout {
+		position:top;
+		background-color: #0000FF !important;
+		width: 120%;
+		height: 120%;
+		position: top;
+		padding-top: 10px;
+		margin-left: -10%;
+	}
+	
+	.labelImageStyle {
+		margin-left: 200%;
+		padding-bottom: 15px;
+		position:top;
+	}
+	
+	.labelUsername {
+		color: white;
+		align: right;
+		font-weight: bold;
+		font-size: 20px;
+		text-align: right;
+		margin-left: 970%;
+		position:right;
+	}
+	
+	.buttonLogout {
+		align: right;
+		font-weight: bold;
+		font-size: 20px;
+		text-align: right;
+		background-color: #0000FF;
+		margin-left: 1600%;
+		position:right;
+	}
+}

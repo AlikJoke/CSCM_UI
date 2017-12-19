@@ -7,4 +7,8 @@ public abstract class AccessTokenHelper {
 	public static String getGrantTypeClientCredentials() {
 		return "grant_type=" + GRANT_TYPE_CLIENT_CREDENTIALS;
 	}
+	
+	public static String getAccessTokenParam() {
+		return "?access_token=";
+	}
 }
